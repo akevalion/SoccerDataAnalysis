@@ -49,3 +49,9 @@ League >> name: anObject [
 
 	name := anObject
 ]
+
+{ #category : #printing }
+League >> printOn: stream [
+
+	stream << name
+]

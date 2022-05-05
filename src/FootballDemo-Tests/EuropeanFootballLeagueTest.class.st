@@ -2,7 +2,8 @@ Class {
 	#name : #EuropeanFootballLeagueTest,
 	#superclass : #TestCase,
 	#instVars : [
-		'loader'
+		'loader',
+		'window'
 	],
 	#category : #'FootballDemo-Tests'
 }
@@ -18,9 +19,24 @@ EuropeanFootballLeagueTest >> setUp [
 	loader := EuropeanFootballLeague new.
 ]
 
+{ #category : #running }
+EuropeanFootballLeagueTest >> tearDown [
+
+	window ifNotNil: #close
+]
+
 { #category : #tests }
 EuropeanFootballLeagueTest >> testCache [
-	self assert: EuropeanFootballLeague instance notNil.
+
+	self assert: EuropeanFootballLeague instance notNil
+]
+
+{ #category : #tests }
+EuropeanFootballLeagueTest >> testLeaguesListPresenter [
+
+	window := EuropeanFootballLeague instance leaguesList open.
+	self assert: window isBuilt.
+	window close
 ]
 
 { #category : #tests }
@@ -39,4 +55,12 @@ EuropeanFootballLeagueTest >> testLoadAll [
 	self assert: match home_team class = Team."
 
 
+]
+
+{ #category : #tests }
+EuropeanFootballLeagueTest >> testTeamsListPresenter [
+
+	window := EuropeanFootballLeague instance teamsList open.
+	self assert: window isBuilt.
+	window close
 ]

@@ -1,6 +1,9 @@
 Class {
 	#name : #FootballEntityTest,
 	#superclass : #TestCase,
+	#instVars : [
+		'window'
+	],
 	#category : #'FootballDemo-Tests'
 }
 
@@ -21,6 +24,12 @@ FootballEntityTest >> setUp [
 
 	super setUp.
 	self timeLimit: 2 minutes
+]
+
+{ #category : #running }
+FootballEntityTest >> tearDown [
+	window ifNotNil: #close.
+	super tearDown.
 ]
 
 { #category : #tests }

@@ -17,6 +17,14 @@ Team class >> fileName [
 	^ 'Team_export_2022-04-14_145800.csv'
 ]
 
+{ #category : #inspector }
+Team >> allTransfersView [
+	<inspectorPresentationOrder: 100 title: 'All transfers'>
+	^ SpRoassal3InspectorPresenter new
+		canvas: RSCanvas new;
+		yourself
+]
+
 { #category : #accessing }
 Team >> id [
 

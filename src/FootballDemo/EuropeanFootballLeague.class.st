@@ -24,20 +24,20 @@ EuropeanFootballLeague class >> reset [
 	instance := nil.
 ]
 
-{ #category : #'as yet unclassified' }
-EuropeanFootballLeague >> inspectorList [
-	<inspectorPresentationORder: 0 title: 'Leagues'>
+{ #category : #accessing }
+EuropeanFootballLeague >> leagues [
+	^ leagues
+]
+
+{ #category : #inspector }
+EuropeanFootballLeague >> leaguesList [
+	<inspectorPresentationOrder: 0 title: 'Leagues'>
 	
 	| presenter |
 	presenter := SpListPresenter new.
 	presenter items: self leagues.
 	
 	^ presenter
-]
-
-{ #category : #accessing }
-EuropeanFootballLeague >> leagues [
-	^ leagues
 ]
 
 { #category : #loading }
@@ -61,4 +61,15 @@ EuropeanFootballLeague >> players [
 { #category : #accessing }
 EuropeanFootballLeague >> teams [
 	^ teams
+]
+
+{ #category : #inspector }
+EuropeanFootballLeague >> teamsList [
+	<inspectorPresentationOrder: 0.1 title: 'Teams'>
+	
+	| presenter |
+	presenter := SpListPresenter new.
+	presenter items: self teams.
+	
+	^ presenter
 ]

@@ -9,3 +9,11 @@ TeamTest >> footballClassName [
 
 	^ Team
 ]
+
+{ #category : #tests }
+TeamTest >> testAllTransferView [
+	| team |
+	team := Team loadAll last.
+	window := team allTransfersView open.
+	self assert: window isBuilt.
+]
